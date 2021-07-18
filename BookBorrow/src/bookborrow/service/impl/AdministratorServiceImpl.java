@@ -162,7 +162,7 @@ public class AdministratorServiceImpl extends BaseDao implements AdministratorSe
 		String btype=input.next();
 		System.out.println("请输入修改后的书籍价格");
 		int bprice=input.nextInt();
-		String sql="update book set name=? , type=? , price=? where bid=?";
+		String sql="update book set name=? , type=? , price=? where id=?";
 		Object[] param= {bname,btype,bprice,id};
 		BookDao bookDao=new BookDaoImpl();
 		int count=bookDao.updateBook(sql, param);

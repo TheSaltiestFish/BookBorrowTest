@@ -66,7 +66,7 @@ public class AdministratorServiceImpl extends BaseDao implements AdministratorSe
 				num=book1.getId()+1;
 			}
 		}
-		if(num==0) {
+		if(num==1) {
 			Book book = booklist.get(booklist.size()-1);
 			num=book.getId()+1;
 		}

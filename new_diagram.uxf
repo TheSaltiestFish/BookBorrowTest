@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>98</y>
+      <w>252</w>
+      <h>378</h>
+    </coordinates>
+    <panel_attributes>bookborrow.service.impl::Main
+--
+--
++main(String[] args): void
+-startBookBorroew(): void
+-userLogin(): User
+-createUser(User user): User
+-IsUserLogOut(User user): void
+-UserChoose(User user): void
+-userrecharge(User user): void
+-change(User user): void
+-allList(User user): void
+-idList(User user): void
+-typeList(User user): void
+-bookList(User user): void
+-historyList(User user): void
+-lendBook(User user): void
+-returnBook(User user): void
+-administratorLogin(): Administrator
+-AdministratorChoose(Administrator administrator): void
+-checkBook(Administrator administrator): void
+-listBook(Administrator administrator): void
+-changeUser(Administrator administrator): void
+-changeBook(Administrator administrator): void
+-listUser(Administrator administrator): void
+-selectUser(Administrator administrator): void
+-addBook(Administrator administrator): void
+-delBook(Administrator administrator): void
+-delHistory(Administrator administrator): void
+-delUser(Administrator administrator): void
+-listHistory(Administrator administrator): void
+-addUser(Administrator administrator): void
+-IsAdministratorLogOut(Administrator administrator): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>924</x>
+      <y>224</y>
+      <w>182</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>bookborrow.entity::History
+--
+~bid: int
+~uname: String
+~bname: String
+~lendtime: String
+~ddl: String
+~returntime: String
+--
++getBid(): int
++setBid(int bid): void
++getUname(): String
++setUname(String uname): void
++getBname(): String
++setBname(String bname): void
++getDdl(): String
++setDdl(String ddl): void
++getLendtime(): String
++setLendtime(String lendtime): void
++getReturntime(): String
++setReturntime(String returntime): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1120</x>
+      <y>266</y>
+      <w>294</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>bookborrow.entity::Book
+--
+~id: int
+~price: int
+~name: String
+~state: String
+~type: String
+--
++Book(): ctor
++Book(int id, int price, String name, String type, String state): ctor
++getPrice(): int
++setPrice(int price): void
++getType(): String
++setType(String type): void
++getId(): int
++setId(int id): void
++getState(): String
++setState(String state): void
++getName(): String
++setName(String name): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>511</x>
+      <y>98</y>
+      <w>231</w>
+      <h>245</h>
+    </coordinates>
+    <panel_attributes>bookborrow.service.impl::AdministratorServiceImpl
+--
+-conn = null: Connection
+-pstmt = null: PreparedStatement
+-rs = null: ResultSet
+--
++login(): Administrator
++list_user(): List&lt;User&gt;
++select_user(String name): List&lt;User&gt;
++add_book(): boolean
++add_user(): boolean
++change_user(): boolean
++change_book(): boolean
++list_history(): List&lt;History&gt;
++delete_book(): boolean
++delete_user(): boolean
++delete_history(): boolean
++list(): List&lt;Book&gt;
++select(String bookname): List&lt;Book&gt;
++check(): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1183</x>
+      <y>21</y>
+      <w>224</w>
+      <h>217</h>
+    </coordinates>
+    <panel_attributes>bookborrow.entity::User
+--
+~name: String
+~password: String
+~phone: String
+~level: int
+~money: int
+--
++getPhone(): String
++setPhone(String phone): void
++getMoney(): int
++setMoney(int money): void
++getLevel(): int
++setLevel(int level): void
++getName(): String
++setName(String name): void
++getPassword(): String
++setPassword(String password): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>35</x>
+      <y>665</y>
+      <w>196</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+bookborrow.service::AdministratorService
+--
+--
++login(): Administrator
++list_user(): List&lt;User&gt;
++select_user(String name): List&lt;User&gt;
++add_book(): boolean
++add_user(): boolean
++change_user(): boolean
++change_book(): boolean
++list_history(): List&lt;History&gt;
++delete_book(): boolean
++delete_user(): boolean
++delete_history(): boolean
++check(): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1043</x>
+      <y>644</y>
+      <w>329</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>bookborrow.dao::BaseDao
+--
++DRIVER: String
++URL: String
++DBNAME: String
++DBPASS: String
+--
++init(): void
++getConn(): Connection
++closeAll(Connection conn, PreparedStatement pstmt, ResultSet rs): void
++executeSQL(String preparedSql, Object[] param): int
++getAllBook(): List&lt;Book&gt;
++getAllCustomer(): List&lt;User&gt;
++getCustomer(String sql, Object[] param): User
++updateCustomer(String sql, Object[] param): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>924</x>
+      <y>21</y>
+      <w>231</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>bookborrow.entity::Administrator
+--
+~name: String
+~password: String
+~phone: String
+--
++Administrator(): ctor
++Administrator(String name, String password): ctor
++getName(): String
++setName(String name): void
++getPassword(): String
++setPassword(String password): void
++getPhone(): String
++setPhone(String phone): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>301</y>
+      <w>238</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>//杩樺彲浠ユ坊鍔犵画鍊燂紝棰勫??&#13;
+bookborrow.service.impl::UserServiceImpl
+--
+--
++lend(User user): void
++returnbook(User user): void
++list(): List&lt;Book&gt;
++select(String bookname): List&lt;Book&gt;
++mybook(String uname): List&lt;History&gt;
++login(): User
++passwordchange(User user, String password): void
++recharge(User user): void
++selecttype(String booktype): List&lt;Book&gt;
++selectid(int id): Book
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1701</x>
+      <y>1001</y>
+      <w>252</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>bookborrow.dao.impl::BookDaoImpl
+--
+-conn = null: Connection
+-pstmt = null: PreparedStatement
+-rs = null: ResultSet
+--
++getAllBook(): List&lt;Book&gt;
++getBook(String sql, Object[] param): Book
++getSomeBook(String sql, Object[] param): List&lt;Book&gt;
++updateBook(String sql, Object[] param): int
++addBook(String sql, Object[] param): int
++deleteBook(String sql, Object[] param): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>238</x>
+      <y>665</y>
+      <w>238</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+bookborrow.service::UserService
+--
+--
++lend(User user): void
++returnbook(User user): void
++mybook(String uname): List&lt;History&gt;
++login(): User
++passwordchange(User user, String password): void
++recharge(User user): void
++selecttype(String booktype): List&lt;Book&gt;
++selectid(int id): Book
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1414</x>
+      <y>1148</y>
+      <w>252</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>bookborrow.dao.impl::UserDaoImpl
+--
+-conn = null: Connection
+-pstmt = null: PreparedStatement
+-rs = null: ResultSet
+--
++getAllUser(): List&lt;User&gt;
++getUser(String sql, Object[] param): User
++getSomeUser(String sql, Object[] param): List&lt;User&gt;
++updateUser(String sql, Object[] param): int
++addUser(String sql, Object[] param): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1386</x>
+      <y>840</y>
+      <w>273</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+bookborrow.dao::BookDao
+--
+--
++getAllBook(): List&lt;Book&gt;
++getBook(String sql, Object[] param): Book
++updateBook(String sql, Object[] param): int
++addBook(String sql, Object[] param): int
++getSomeBook(String sql, Object[] param): List&lt;Book&gt;
++deleteBook(String sql, Object[] param): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1407</x>
+      <y>1001</y>
+      <w>266</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>bookborrow.dao.impl::HistoryDaoImpl
+--
+-conn = null: Connection
+-pstmt = null: PreparedStatement
+-rs = null: ResultSet
+--
++getAllHistory(): List&lt;History&gt;
++getHistory(String sql, Object[] param): History
++updateHistory(String sql, Object[] param): int
++getSomeHistory(String sql, Object[] param): List&lt;History&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1687</x>
+      <y>1169</y>
+      <w>273</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>bookborrow.dao.impl::AdministratorDaoImpl
+--
+-conn = null: Connection
+-pstmt = null: PreparedStatement
+-rs = null: ResultSet
+--
++getAllAdministrator(): List&lt;Administrator&gt;
++getAdministrator(String sql, Object[] param): Administrator
++updateAdministrator(String sql, Object[] param): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1043</x>
+      <y>847</y>
+      <w>329</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+bookborrow.dao::UserDao
+--
+--
++getAllUser(): List&lt;User&gt;
++getUser(String sql, Object[] param): User
++updateUser(String sql, Object[] param): int
++addUser(String sql, Object[] param): int
++getSomeUser(String sql, Object[] param): List&lt;User&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1386</x>
+      <y>735</y>
+      <w>273</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+bookborrow.dao::HistoryDao
+--
+--
++getAllHistory(): List&lt;History&gt;
++getHistory(String sql, Object[] param): History
++getSomeHistory(String sql, Object[] param): List&lt;History&gt;
++updateHistory(String sql, Object[] param): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1386</x>
+      <y>644</y>
+      <w>273</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+bookborrow.dao::AdministratorDao
+--
+--
++getAllAdministrator(): List&lt;Administrator&gt;
++getAdministrator(String sql, Object[] param): Administrator
++updateAdministrator(String sql, Object[] param): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>35</x>
+      <y>854</y>
+      <w>196</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+bookborrow.service::AdministratorFactory
+--
+--
++createAdministrator(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>98</y>
+      <w>238</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>bookborrow.service.impl::UserFactoryImpl
+--
+--
++UserFactoryImpl(): ctor
++createUser(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>238</x>
+      <y>833</y>
+      <w>238</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+bookborrow.service::ListBookable
+--
+--
++list(): List&lt;Book&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>238</x>
+      <y>910</y>
+      <w>238</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+bookborrow.service::SelectBookable
+--
+--
++select(String bookname): List&lt;Book&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>35</x>
+      <y>917</y>
+      <w>196</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+bookborrow.service::UserFactory
+--
+--
++createUser(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>203</y>
+      <w>238</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>bookborrow.service.impl::AdministratorFactoryImpl
+--
+--
++createAdministrator(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

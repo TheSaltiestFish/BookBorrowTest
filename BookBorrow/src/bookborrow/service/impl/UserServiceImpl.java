@@ -262,7 +262,7 @@ public class UserServiceImpl implements UserService{
 		int m=input.nextInt();
 		user.setMoney(m+user.getMoney());
 		String sql="update users set money=? where name=?";
-	    Object[] param= {m,user.getName()};
+	    Object[] param= {user.getMoney(),user.getName()};
 	    UserDao udao=new UserDaoImpl();
 	    int count=udao.updateUser(sql, param);
 	    if(count>0) {

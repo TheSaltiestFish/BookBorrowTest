@@ -203,7 +203,7 @@ public class Main {
 		int id=input.nextInt();
 		UserService us = new UserServiceImpl();
 		Book book= us.selectid(id);
-		if(book.getName().equals(null)) {
+		if(book.getName()==null) {
 			System.out.println("书籍不存在");
 		}else {
 			System.out.println("序号\t"+ "价格\t"+ "图书名称\t"+"图书类型\t"+"图书状态\t");
@@ -498,7 +498,7 @@ public class Main {
 			System.out.println("图书ID\t" + "用户名\t"+"图书名称\t"+"借阅时间\t"+"归还截止时间\t"+"归还时间\t");
 			for (int i = 0; i < historyList.size(); i++) {
 				History history = historyList.get(i);
-				System.out.println(history.getBid()+"\t"+ history.getBname()+"\t"+history.getLendtime()+"\t"
+				System.out.println(history.getBid()+"\t"+history.getUname()+"\t"+ history.getBname()+"\t"+history.getLendtime()+"\t"
 						+history.getDdl()+"\t"+history.getReturntime()+"\t");
 			}
 			IsAdministratorLogOut(administrator);

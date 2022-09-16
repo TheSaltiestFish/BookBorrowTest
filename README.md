@@ -1,5 +1,5 @@
 # BookBorrow
-A simple school project using MySQL, JDBC, Java Swing
+- A simple school project using MySQL, JDBC, Java Swing
 
 ### Login
 ![image](https://user-images.githubusercontent.com/67789306/190673797-6fab17dc-eefa-4825-aeab-0214da3df0ba.png)
